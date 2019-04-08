@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Plugin Name: Seventy Blocks
- * Plugin URI: https://github.com/coreytegeler/seventy-blocks.git
+ * Plugin Name: Nakba Blocks
+ * Plugin URI: https://github.com/coreytegeler/nakba-gutenberg-blocks.git
  * Description: 
- * Version: 0.1.0
+ * Version: 1.0.0
  * Author: Corey Tegeler
  *
- * @package seventy-blocks
+ * @package nakba-blocks
  */
 
 defined( 'ABSPATH' ) || exit;

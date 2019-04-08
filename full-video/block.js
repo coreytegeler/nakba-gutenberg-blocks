@@ -4,10 +4,10 @@
 	var MediaUpload = editor.MediaUpload;
 	var InspectorControls = wp.blocks.InspectorControls;
 
-	i18n.setLocaleData( window.full_media.localeData, 'seventy-blocks' );
+	i18n.setLocaleData( window.full_media.localeData, 'nakba-blocks' );
 
-	blocks.registerBlockType( 'seventy-blocks/full-video', {
-		title: i18n.__( 'Full Video', 'seventy-blocks' ),
+	blocks.registerBlockType( 'nakba-blocks/full-video', {
+		title: i18n.__( 'Full Video', 'nakba-blocks' ),
 		icon: 'editor-expand',
 		category: 'common',
 		attributes: {
@@ -43,7 +43,7 @@
 										className: attr.id ? 'media-button' : 'button button-large',
 										onClick: obj.open
 									},
-									!attr.id ? i18n.__( 'Upload Media', 'seventy-blocks' ) : el( 'img', {
+									!attr.id ? i18n.__( 'Upload Media', 'nakba-blocks' ) : el( 'img', {
 										src: attr.poster
 									} )
 								);
@@ -58,7 +58,7 @@
 										tagName: 'div',
 										className: 'block-body',
 										inline: false,
-										placeholder: i18n.__( 'Body', 'seventy-blocks' ),
+										placeholder: i18n.__( 'Body', 'nakba-blocks' ),
 										formattingControls: ['bold', 'italic', 'link'],
 										value: attr.body,
 										onChange: function( value ) {

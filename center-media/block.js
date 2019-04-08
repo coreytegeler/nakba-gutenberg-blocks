@@ -4,10 +4,10 @@
 	var MediaUpload = editor.MediaUpload;
 	var InspectorControls = wp.blocks.InspectorControls;
 
-	i18n.setLocaleData( window.center_media.localeData, 'seventy-blocks' );
+	i18n.setLocaleData( window.center_media.localeData, 'nakba-blocks' );
 
-	blocks.registerBlockType( 'seventy-blocks/center-media', {
-		title: i18n.__( 'Center Media', 'seventy-blocks' ),
+	blocks.registerBlockType( 'nakba-blocks/center-media', {
+		title: i18n.__( 'Center Media', 'nakba-blocks' ),
 		icon: 'align-center',
 		category: 'common',
 		attributes: {
@@ -43,7 +43,7 @@
 									className: attributes.media ? 'media-button' : 'button button-large',
 									onClick: obj.open
 								},
-								!attributes.media ? i18n.__( 'Upload Media', 'seventy-blocks' ) : loopMedia( attributes.media )
+								!attributes.media ? i18n.__( 'Upload Media', 'nakba-blocks' ) : loopMedia( attributes.media )
 							);
 						}
 					} )

@@ -4,10 +4,10 @@
 	var MediaUpload = editor.MediaUpload;
 	var InspectorControls = wp.blocks.InspectorControls;
 
-	i18n.setLocaleData( window.section_title.localeData, 'seventy-blocks' );
+	i18n.setLocaleData( window.section_title.localeData, 'nakba-blocks' );
 
-	blocks.registerBlockType( 'seventy-blocks/section-title', {
-		title: i18n.__( 'Section Title', 'seventy-blocks' ),
+	blocks.registerBlockType( 'nakba-blocks/section-title', {
+		title: i18n.__( 'Section Title', 'nakba-blocks' ),
 		icon: 'admin-links',
 		category: 'common',
 		attributes: {
@@ -25,7 +25,7 @@
 						tagName: 'h2',
 						className: 'section-title-text',
 						inline: true,
-						placeholder: i18n.__( 'Section Title', 'seventy-blocks' ),
+						placeholder: i18n.__( 'Section Title', 'nakba-blocks' ),
 						value: attributes.sectionTitle,
 						onChange: function( value ) {
 							props.setAttributes( { sectionTitle: value } );

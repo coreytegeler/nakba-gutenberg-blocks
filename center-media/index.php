@@ -8,7 +8,7 @@ defined( 'ABSPATH' ) || exit;
 // add_action( 'init', 'center_media_load_textdomain' );
 
 // function center_media_load_textdomain() {
-// 	load_plugin_textdomain( 'seventy-blocks', false, basename( __DIR__ ) . '/languages' );
+// 	load_plugin_textdomain( 'nakba-blocks', false, basename( __DIR__ ) . '/languages' );
 // }
 
 /**
@@ -38,7 +38,7 @@ function center_media_register_block() {
 	// 	filemtime( plugin_dir_path( __FILE__ ) . 'style.css' )
 	// );
 
-	register_block_type( 'seventy-blocks/center-media', array(
+	register_block_type( 'nakba-blocks/center-media', array(
 		// 'style' => 'center-media',
 		'script' => 'center-media',
 	) );
@@ -52,7 +52,7 @@ function center_media_register_block() {
 		'center-media',
 		sprintf( 
 			'var center_media = { localeData: %s };', 
-			json_encode( 'seventy-blocks' )
+			json_encode( 'nakba-blocks' )
 		),
 		'before'
 	);
