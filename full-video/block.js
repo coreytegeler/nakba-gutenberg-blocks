@@ -29,7 +29,8 @@
 				return props.setAttributes( {
 					url: media.url,
 					id: media.id,
-					poster: media.image.src
+					alt: media.alt,
+					// poster: media.image.src
 				} );
 			};
 			return (
@@ -40,11 +41,11 @@
 							value: attr.id,
 							render: function( obj ) {
 								return el( components.Button, {
-										className: attr.id ? 'media-button' : 'button button-large',
+										className: !attr.id ? 'button button-large' : 'media-button',
 										onClick: obj.open
 									},
-									!attr.id ? i18n.__( 'Upload Media', 'nakba-blocks' ) : el( 'img', {
-										src: attr.poster
+									!attr.id ? i18n.__( 'Upload Media', 'nakba-blocks' ) : el( 'video', {
+										src: attr.url
 									} )
 								);
 							}
@@ -77,23 +78,27 @@
 			return (
 				el( 'div', { className: 'div' },
 					el( 'div', { className: 'block media-block full-media-block full-video-block desktop media muted mutable' },
-						attr.poster && el( 'div', {className:'block-media video-still', style: { backgroundImage: 'url('+attr.poster+')' } } ),
-						attr.url && el( 'video', {
+						// el( 'div', {className:'block-media video-still', style: { backgroundImage: 'url('+(attr.poster ? attr.poster : null)+')' } } ),
+						el( 'video', {
 							src: attr.url,
 							autoplay: false,
-							muted: true,
+							muted: 'muted',
 							volume: 0,
-							loop: true,
-							preload : 'auto'
+							loop: 'loop',
+							preload : 'auto',
+							alt: attr.alt,
+							// poster: attr.poster
 						} ),
 						el( 'div', { className: 'full-inner' },
 							el( 'div', { className: 'row' },
 								el( 'div', { className: 'col col-12 col-sm-6 align-items-center' },
-									el( RichText.Content, {
-										tagName: 'div',
-										className: 'block-body',
-										value: attr.body
-									} )
+									el( 'div', { className: 'block-text' },
+										el( RichText.Content, {
+											tagName: 'div',
+											className: 'block-body',
+											value: attr.body
+										} )
+									)
 								)
 							)
 						)
@@ -110,7 +115,8 @@
 											volume: 0,
 											loop: true,
 											preload : 'auto',
-											alt: attr.body
+											alt: attr.alt,
+											// poster: attr.poster
 										} )
 									)
 								),

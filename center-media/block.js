@@ -52,8 +52,9 @@
 		},
 		save: function( props ) {
 			var attributes = props.attributes;
+			var customClass = attributes.className ? attributes.className : '';
 			return (
-				el( 'div', { className: 'block media-block center-media-block' },
+				el( 'div', { className: 'block media-block center-media-block '+customClass },
 					attributes.media && el( 'div', { className: 'row align-items-center flex-column' },
 						el( 'div', { className: 'col-12 col-sm-8' },
 							el( 'div', { className: 'block-media'+( attributes.media.length > 1 ? ' slideshow' : '' ) },

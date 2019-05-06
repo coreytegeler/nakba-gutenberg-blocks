@@ -29,6 +29,7 @@
 						url: media[i].url,
 						id: media[i].id,
 						alt: media[i].alt,
+						size: media[i].size,
 						type: ( media[i].type == 'image' ? 'img' : media[i].type ),
 					});
 					if(media[i].type == 'video') {
@@ -78,8 +79,9 @@
 		},
 		save: function( props ) {
 			var attributes = props.attributes;
+			var customClass = attributes.className ? attributes.className : '';
 			return (
-				el( 'div', { className: 'block media-block left-media-block' },
+				el( 'div', { className: 'block media-block left-media-block '+customClass },
 					el( 'div', { className: 'row' },
 						attributes.media && el( 'div', { className: 'left col-12 col-sm-7 align-items-center' },
 							el( 'div', { className: 'block-media'+( attributes.media.length > 1 ? ' slideshow' : '' ) },

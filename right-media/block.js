@@ -78,8 +78,9 @@
 		},
 		save: function( props ) {
 			var attributes = props.attributes;
+			var customClass = attributes.className ? attributes.className : '';
 			return (
-				el( 'div', { className: 'block media-block right-media-block' },
+				el( 'div', { className: 'block media-block right-media-block '+customClass},
 					el( 'div', { className: 'row' },
 						el( 'div', { className: 'left col-12 col-sm-5 align-items-center' },
 							el( 'div', { className: 'block-text' },
