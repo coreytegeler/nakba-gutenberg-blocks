@@ -17,4 +17,5 @@ include 'left-media/index.php';
 include 'right-media/index.php';
 include 'full-media/index.php';
 include 'full-video/index.php';
+include 'paired-media/index.php';
 include 'section-title/index.php';
