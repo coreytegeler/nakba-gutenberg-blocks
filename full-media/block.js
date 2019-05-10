@@ -75,9 +75,14 @@
 			var attributes = props.attributes;
 			return (
 				el( 'div', { className: 'div' },
-					el( 'div', { className: 'block media-block full-media-block desktop' },
-						attributes.mediaURL && el( 'div', { className: 'block-media', style: { backgroundImage: 'url('+attributes.mediaURL+')' } } ),
-						el( 'div', { className: 'full-inner' },
+					el( 'div', { className: 'block media-block full-media-block' },
+						attributes.mediaURL && el( 'div', { className: 'block-media', style: { backgroundImage: 'url('+attributes.mediaURL+')' } },
+							attributes.mediaURL && el( 'img', {
+								className: 'stretcher mobile',
+								src: attributes.mediaURL
+							} ),
+						),
+						el( 'div', { className: 'full-inner desktop' },
 							el( 'div', { className: 'row' },
 								el( 'div', { className: 'col col-12 col-sm-6 align-items-center' },
 									el( 'div', { className: 'block-text' },
@@ -91,24 +96,10 @@
 							)
 						)
 					),
-					el( 'div', { className: 'block media-block center-media-block mobile' },
-						attributes.mediaURL && el( 'div', { className: 'row align-items-center flex-column' },
-							el( 'div', { className: 'col-12 col-sm-8' },
-								el( 'div', { className: 'block-media' },
-									el( 'div', { className: 'media' },
-										el( 'img', {
-											src: attributes.mediaURL,
-											alt: attributes.body
-										} )
-									)
-								),
-								el( 'div', { className: 'block-text' },
-									el( RichText.Content, {
-										tagName: 'div', className: 'block-body', value: attributes.body
-									} )
-								)
-							)
-						)
+					el( 'div', { className: 'block-text mobile' },
+						el( RichText.Content, {
+							tagName: 'div', className: 'block-body', value: attributes.body
+						} )
 					)
 				)
 			);

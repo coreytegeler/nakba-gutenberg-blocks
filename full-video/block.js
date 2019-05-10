@@ -29,8 +29,7 @@
 				return props.setAttributes( {
 					url: media.url,
 					id: media.id,
-					alt: media.alt,
-					// poster: media.image.src
+					alt: media.alt
 				} );
 			};
 			return (
@@ -75,55 +74,55 @@
 		},
 		save: function( props ) {
 			var attr = props.attributes;
+			var customClass = attr.className ? attr.className : '';
 			return (
 				el( 'div', { className: 'div' },
-					el( 'div', { className: 'block media-block full-media-block full-video-block desktop media muted mutable' },
-						// el( 'div', {className:'block-media video-still', style: { backgroundImage: 'url('+(attr.poster ? attr.poster : null)+')' } } ),
-						el( 'video', {
-							src: attr.url,
-							autoplay: false,
-							muted: 'muted',
-							volume: 0,
-							loop: 'loop',
-							preload : 'auto',
-							alt: attr.alt,
-							// poster: attr.poster
-						} ),
-						el( 'div', { className: 'full-inner' },
-							el( 'div', { className: 'row' },
-								el( 'div', { className: 'col col-12 col-sm-6 align-items-center' },
-									el( 'div', { className: 'block-text' },
-										el( RichText.Content, {
-											tagName: 'div',
-											className: 'block-body',
-											value: attr.body
-										} )
-									)
-								)
-							)
-						)
-					),
-					el( 'div', { className: 'block media-block center-media-block mobile' },
+					el( 'div', { className: 'desktop' },
+						el( 'div', { className: 'block media-block full-media-block full-video-block media muted mutable '+customClass },
+							el( 'video', {
+								src: attr.url,
+								autoplay: false,
+								muted: 'muted',
+								volume: 0,
+								loop: 'loop',
+								preload : 'auto',
+								alt: attr.alt,
+							} ),
+						),
 						el( 'div', { className: 'row align-items-center flex-column' },
 							el( 'div', { className: 'col-12 col-sm-8' },
-								el( 'div', { className: 'block-media' },
-									el( 'div', { className: 'media muted mutable' },
-										attr.url && el( 'video', {
-											src: attr.url,
-											autoplay: false,
-											muted: true,
-											volume: 0,
-											loop: true,
-											preload : 'auto',
-											alt: attr.alt,
-											// poster: attr.poster
-										} )
-									)
-								),
 								el( 'div', { className: 'block-text' },
 									el( RichText.Content, {
-										tagName: 'div', className: 'block-body', value: attr.body
+										tagName: 'div',
+										className: 'block-body',
+										value: attr.body
 									} )
+								)
+							)
+						),
+					),
+					el( 'div', { className: 'mobile' },
+						el( 'div', { className: 'block media-block center-media-block' },
+							el( 'div', { className: 'row align-items-center flex-column' },
+								el( 'div', { className: 'col-12 col-sm-8' },
+									el( 'div', { className: 'block-media' },
+										el( 'div', { className: 'media muted mutable' },
+											attr.url && el( 'video', {
+												src: attr.url,
+												autoplay: false,
+												muted: true,
+												volume: 0,
+												loop: true,
+												preload : 'auto',
+												alt: attr.alt,
+											} )
+										)
+									),
+									el( 'div', { className: 'block-text' },
+										el( RichText.Content, {
+											tagName: 'div', className: 'block-body', value: attr.body
+										} )
+									)
 								)
 							)
 						)

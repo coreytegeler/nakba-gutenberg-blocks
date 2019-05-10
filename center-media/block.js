@@ -11,6 +11,11 @@
 		icon: 'align-center',
 		category: 'common',
 		attributes: {
+			body: {
+				type: 'array',
+				source: 'children',
+				selector: '.block-body',
+			},
 			media: {
 				type: 'array',
 			},
@@ -46,7 +51,20 @@
 								!attributes.media ? i18n.__( 'Upload Media', 'nakba-blocks' ) : loopMedia( attributes.media )
 							);
 						}
-					} )
+					} ),
+					el( 'div', { className: 'block-text' },
+						el( RichText, {
+							tagName: 'div',
+							className: 'block-body',
+							inline: false,
+							placeholder: i18n.__( 'Body', 'nakba-blocks' ),
+							formattingControls: ['bold', 'italic', 'link'],
+							value: attributes.body,
+							onChange: function( value ) {
+								props.setAttributes( { body: value } );
+							}
+						} )
+					)
 				)
 			)
 		},
@@ -59,6 +77,11 @@
 						el( 'div', { className: 'col-12 col-sm-8' },
 							el( 'div', { className: 'block-media'+( attributes.media.length > 1 ? ' slideshow' : '' ) },
 								loopMedia( attributes.media )
+							),
+							el( 'div', { className: 'block-text' },
+								el( RichText.Content, {
+									tagName: 'div', className: 'block-body', value: attributes.body
+								} )
 							)
 						)
 					)
