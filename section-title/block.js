@@ -22,7 +22,7 @@
 			return (
 				el( 'div', { className: 'block section-title' },
 					el( RichText, {
-						tagName: 'h2',
+						tagName: 'h3',
 						className: 'section-title-text',
 						inline: true,
 						placeholder: i18n.__( 'Section Title', 'nakba-blocks' ),
@@ -39,7 +39,7 @@
 			return (
 				el( 'div', { className: 'block section-title' },
 					el( RichText.Content, {
-						tagName: 'div',
+						tagName: 'h3',
 						className: 'section-title-text',
 						value: attributes.sectionTitle
 					} )
