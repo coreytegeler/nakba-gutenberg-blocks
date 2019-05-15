@@ -97,6 +97,7 @@
 								loop: 'loop',
 								preload : 'auto',
 								alt: attr.alt,
+								poster: attr.poster
 							} ),
 						),
 						el( 'div', { className: 'row align-items-center flex-column' },
@@ -116,7 +117,7 @@
 							el( 'div', { className: 'row align-items-center flex-column' },
 								el( 'div', { className: 'col-12 col-sm-8' },
 									el( 'div', { className: 'block-media' },
-										el( 'div', { className: 'media muted mutable' },
+										el( 'div', { className: 'media muted mutable', style: ( attr.poster ? 'background-image:url('+attr.poster+')' : '' ) },
 											attr.url && el( 'video', {
 												src: attr.url,
 												autoplay: false,
@@ -125,6 +126,7 @@
 												loop: true,
 												preload : 'auto',
 												alt: attr.alt,
+												poster: attr.poster
 											} )
 										)
 									),
