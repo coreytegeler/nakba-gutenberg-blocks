@@ -17,6 +17,12 @@
 			url: {
 				type: 'string',
 			},
+			alt: {
+				type: 'string',
+			},
+			poster: {
+				type: 'string',
+			},
 			body: {
 				type: 'array',
 				source: 'children',
@@ -27,9 +33,10 @@
 			var attr = props.attributes;
 			var onSelectImage = function( media ) {
 				return props.setAttributes( {
-					url: media.url,
 					id: media.id,
-					alt: media.alt
+					url: media.url,
+					alt: media.alt,
+					poster: media.image.src || null
 				} );
 			};
 			return (
@@ -78,7 +85,10 @@
 			return (
 				el( 'div', { className: 'div' },
 					el( 'div', { className: 'desktop' },
-						el( 'div', { className: 'block media-block full-media-block full-video-block media muted mutable '+customClass },
+						el( 'div', {
+							className: 'block media-block full-media-block full-video-block media muted mutable '+customClass,
+							style: ( attr.poster ? 'background-image:url('+attr.poster+')' : '' )
+						},
 							el( 'video', {
 								src: attr.url,
 								autoplay: false,
